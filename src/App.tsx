@@ -9,6 +9,12 @@ const App = () => {
     "go for a run",
     "cook food",
   ]);
+  const [isComplete, setIsComplete] = useState(false);
+  const toggleComplete = (): void => {
+    setIsComplete(!isComplete);
+    console.log("toggle fn");
+    console.log(isComplete);
+  };
 
   const removeTask = (taskIndex: number): void => {
     const filteredTaskArr = taskArr.filter(
@@ -27,12 +33,15 @@ const App = () => {
         return (
           <Task
             key={index}
+            textClassName={
+              isComplete && task === taskArr[index] ? "completed" : ""
+            }
             taskItem={task}
             handleClose={() => {
               removeTask(index);
             }}
             handleComplete={() => {
-              console.log("COMPLETE CLICKED");
+              toggleComplete();
             }}
           />
         );

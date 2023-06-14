@@ -1,16 +1,23 @@
 import { AiOutlineClose } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/ai";
 import { AiOutlineCheck } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/ai";
+import "./Task.css";
 
 interface Props {
   taskItem: string;
+  textClassName: string;
   handleClose: () => void;
   handleComplete: () => void;
 }
 
-const Task = ({ taskItem, handleClose, handleComplete }: Props) => {
+const Task = ({
+  taskItem,
+  handleClose,
+  handleComplete,
+  textClassName,
+}: Props) => {
   return (
     <div>
-      <p>{taskItem}</p>
+      <p className={textClassName}>{taskItem}</p>
       <a href="#" onClick={handleClose}>
         <AiOutlineClose size="28" color="red" />
       </a>
