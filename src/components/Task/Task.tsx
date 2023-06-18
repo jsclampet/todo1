@@ -1,13 +1,12 @@
 import { AiOutlineClose } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/ai";
 import { AiOutlineCheck } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/ai";
 import "./Task.css";
-import { ChangeEvent } from "react";
 
 interface Props {
   taskItem: string;
   textClassName: string;
   handleClose: () => void;
-  handleComplete: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleComplete: () => void;
 }
 
 const Task = ({

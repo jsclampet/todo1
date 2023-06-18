@@ -9,11 +9,12 @@ const App = () => {
     "go for a run",
     "cook food",
   ]);
-  const [isComplete, setIsComplete] = useState(false);
-  const toggleComplete = (): void => {
-    setIsComplete(!isComplete);
-  };
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [userInput, setUserInput] = useState("");
 
+  const addTask = (newTask: string) => {
+    setTaskArr([...taskArr, newTask]);
+  };
   const removeTask = (taskIndex: number): void => {
     const filteredTaskArr = taskArr.filter(
       (item: string, index: number) => index != taskIndex
@@ -31,16 +32,13 @@ const App = () => {
         return (
           <Task
             key={index}
-            textClassName={
-              isComplete && task === taskArr[index] ? "completed" : ""
-            }
+            textClassName={index === selectedIndex ? "completed" : ""}
             taskItem={task}
             handleClose={() => {
               removeTask(index);
             }}
-            handleComplete={(e) => {
-              toggleComplete();
-              console.log(e.target);
+            handleComplete={() => {
+              setSelectedIndex(index);
             }}
           />
         );
