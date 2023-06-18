@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 import { useState } from "react";
 import Task from "./components/Task";
 import { BiMessageSquareAdd } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/bi";
@@ -12,8 +12,6 @@ const App = () => {
   const [isComplete, setIsComplete] = useState(false);
   const toggleComplete = (): void => {
     setIsComplete(!isComplete);
-    console.log("toggle fn");
-    console.log(isComplete);
   };
 
   const removeTask = (taskIndex: number): void => {
@@ -40,8 +38,9 @@ const App = () => {
             handleClose={() => {
               removeTask(index);
             }}
-            handleComplete={() => {
+            handleComplete={(e) => {
               toggleComplete();
+              console.log(e.target);
             }}
           />
         );
