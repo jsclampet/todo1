@@ -3,6 +3,14 @@ import { useState } from "react";
 import Task from "./components/Task";
 import { BiMessageSquareAdd } from "/Users/johnclampet/Documents/Coding/Mosh React/practice/todo1/node_modules/react-icons/bi";
 
+/*
+
+IDEA !! INSTEAD of taskArr being array of strings ... it could be an array of OBJECTS ... 
+( isComplete ... classNamesArr ...) 
+to track info on each task
+
+*/
+
 const App = () => {
   const [taskArr, setTaskArr] = useState([
     "go to sleep",
